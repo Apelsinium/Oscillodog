@@ -89,6 +89,7 @@ Advanced settings window can be called by pressing "Advanced settings" button on
 These settings are used to change two main parameters of pyaudio extensions: Sampling frequency and Data chunk size.
 
 >Sampling frequency is the frequency in Hz (how many times every second) with which the oscilloscope gets the data from your input device. For example, the value of 48000 means that every second the program will take 48000 points for the plot and put them into the data chunk. Typical sampling rate of modern sound cards is 44100 or 48000 Hz.
+
 >Data chunk size determines how many points will be taken before further processing. By default it set 4096 which means that after the program took 4096 samples (with sample frequency mentioned above) they will converted into the python list and put on the screen.
 
 OSCILLOSCOPE SETTINGS
@@ -96,6 +97,7 @@ OSCILLOSCOPE SETTINGS
 These settings are used to determine if an intersection of the signal and trigger line is ascending or descending by defining the sign of derivative in a given point. If you don't know what exactly a derivative is then probably you don't need this section.
 
 >Freq detecting indent is a delta for time axis. In calculus we use the smallest piece of function called "d" for that. Since the given signal can be noisy we (probably) can't use d=1 but it should be quite insignificant comparing to the cluster size. The default value of 5 is okay.
+
 >Freq detecting cluster size. The program usually takes more than one ascending or descending points for triggering and frecuency detecting. Instead, because of possible noise and subsequently big delta it takes a cluster of "points of interest": data points satisfying derivative requirements. However, we need only one of them. This variable determines the maximum size of the "points of interest". The default value is 200. If there is more than 200 points in a cluster (5% of the default chunk size) then probably your function in vicinity of the given point is flat.
 
 QUADRATIC APPROXIMATION FUNCTION a*x^2+b*x
