@@ -324,7 +324,9 @@ def change_Xmax(inp):
 def change_Ymax(inp):
     global Ymax
     try:
-        Ymax=int(Y_entry.get())
+        Ymax=5*round(int(Y_entry.get())/5)
+        if Ymax<5:
+            Ymax=5
     except ValueError:
         messagebox.showerror("Input error", "Input error: please enter an integer value")
     for widget in plot_frame.winfo_children():
@@ -352,6 +354,7 @@ def save_plot(inp1, inp2):
 # Starting GUI
 root=Tk()
 root.title("Oscillodog")
+root.resizable(0, 0)
 
 def on_closing():
     global on_off
@@ -434,6 +437,7 @@ def adv_settings():
     global sampling_entry, a_entry, b_entry, chunk_entry, d_entry, cluster_entry
     menu = Toplevel()
     menu.title("Advanced settings")
+    menu.resizable(0, 0)
     Label(menu,
         text="Warning! These settings CAN break the program.\nChange them on your own risk!"
     ).grid(row=0, column=0, columnspan=3)
